@@ -1,3 +1,18 @@
+@mixin progressStyle {
+  width: 20em;
+  height: 2em;
+  background-color: white;
+  border-radius: 1.5em;
+  margin: auto 0 auto 1em;
+  .eighty{
+    width: 80%;
+    height: 2em;
+    background-color: #ff9f1a;
+    border-radius: 1.5em;
+    font-size: 1em;
+    line-height: 2em;
+  }
+}
 @font-face {
   font-family: 'ImcreSoojin';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
@@ -58,6 +73,7 @@ html{
 header{
   background-color: #dff9fb;
   height: 100vh;
+  width: 100%;
   .title{
     font-size: 8em;
     color: #535c68;
@@ -111,8 +127,8 @@ header{
     text-align: center;
     margin: auto 0;
     img{
-      width: 30vw;
-      height: 30vw;
+      width: 40vh;
+      height: 40vh;
     }
     .name{
       font-size: 1.5em;
@@ -132,12 +148,148 @@ header{
       line-height: 2em;
     }
   }
+  .skill{
+    margin:auto 0;
+    align-items: center;
+    text-align: center;
+    .html{
+      margin: 1em 0;
+      display: flex;
+      .logo{
+        width: 2.7em;
+        color: white;
+        background-color: #ff9f1a;
+        font-size: 2em;
+        padding: 1em .25em;
+        border-radius: .5em;
+        text-align: center;
+      }
+      .progress{
+        @include progressStyle();
+      }
+    }
+    .css{
+      margin: 1em 0;
+      display: flex;
+      .logo{
+        width: 2.7em;
+        color: white;
+        background-color: #1B9CFC;
+        font-size: 2em;
+        padding: 1em .25em;
+        border-radius: .5em;
+        text-align: center;
+      }
+      .progress{
+        @include progressStyle();
+        .eighty{
+          background-color: #1B9CFC;
+        }
+      }
+    }
+    .js{
+      margin: 1em 0;
+      display: flex;
+      .logo{
+        width: 2.7em;
+        color: white;
+        background-color: #fff200;
+        font-size: 2em;
+        padding: 1em .25em;
+        border-radius: .5em;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      }
+      .progress{
+        @include progressStyle();
+        .eighty{
+          background-color: #fff200;
+        }
+      }
+    }
+    .php{
+      margin: 1em 0;
+      display: flex;
+      .logo{
+        width: 2.7em;
+        color: white;
+        background-color: #1B1464;
+        font-size: 2em;
+        padding: 1em .25em;
+        border-radius: .5em;
+        text-align: center;
+      }
+      .progress{
+        @include progressStyle();
+        .eighty{
+          background-color:#1B1464;
+          color: white;
+        }
+      }
+    }
+  }
 }
 
 .projects{
   width: 100%;
   height: 100vh;
   background-color: #95afc0;
+  position: relative;
+  .nextBtn{
+    position:absolute;
+    font-size: 3em;
+    background-color: #535c68;
+    color: white;
+    bottom: 10vh;
+    right: 10vh;
+    padding: 1em;
+    border-radius: 1em;
+    cursor: pointer;
+    &:active{
+      transform: scale(0.98);
+    }
+  }
+  .p_title{
+    text-align: center;
+    font-size: 4em;
+    padding: 1em 0;
+  }
+  .project{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    .p_content{
+      display: flex;
+      justify-content: space-around;
+      .p_leftContent{
+        p{
+          font-size: 2em;
+          text-align: center;
+        }
+        .img_wrap{
+            overflow: scroll;
+            height: 500px;
+            width: 500px;
+          img{
+            width: 500px;
+          }
+        }
+      }
+      .p_description{
+        width: 500px;
+        font-size: 1.3em;
+        line-height: 1.5em;
+        p{
+          padding: 1em 0 ;
+        }
+      }
+    }
+    &.active{
+      opacity: 1;
+    }
+  }
 }
 
 .contact{
@@ -145,4 +297,66 @@ header{
   height: 100vh;
   background-color: #535c68;
   color: #dff9fb;
+  text-align: center;
+  font-size: 3em;
+  position: relative;
+  .contact-wrap{
+    margin: auto auto;
+    width: 70vw;
+    word-break: keep-all;
+    position:relative;
+    z-index: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    div{
+      padding: 0.4em;
+    }
+  }
+  .special{
+    position:absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, 0);
+    font-size: 0.4em;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .introduction{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .profile{
+      width: 100%;
+      font-size: 1.9em;
+      margin: 0;
+    }
+    .skill{
+      margin: 0 auto;
+    }
+  }
+  .projects{
+    .nextBtn{ bottom: 5vh; right: 5vh; }
+    .p_title{
+      font-size: 7em;
+    }
+    .p_content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .p_leftContent{
+      font-size: 2em;
+      width: 100%;
+      .img_wrap{
+        margin: 0 auto;
+      }
+    }
+    .p_description{
+      width: 100%;
+      margin: 0 auto;
+      font-size: 2rem!important;
+    }
+  }
 }
