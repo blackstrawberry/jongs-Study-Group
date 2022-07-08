@@ -350,6 +350,8 @@ header nav a div {
 }
 
 .projects .project {
+  -webkit-transition: .4s;
+  transition: .4s;
   position: absolute;
   top: 0;
   left: 0;
