@@ -237,6 +237,7 @@ header{
   position: relative;
   .nextBtn{
     position:absolute;
+    z-index: 9999;
     font-size: 3em;
     background-color: #535c68;
     color: white;
@@ -255,6 +256,7 @@ header{
     padding: 1em 0;
   }
   .project{
+    z-index: 1;
     transition: .4s;
     position:absolute;
     top: 0;

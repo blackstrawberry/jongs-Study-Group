@@ -328,6 +328,7 @@ header nav a div {
 
 .projects .nextBtn {
   position: absolute;
+  z-index: 9999;
   font-size: 3em;
   background-color: #535c68;
   color: white;
@@ -350,6 +351,7 @@ header nav a div {
 }
 
 .projects .project {
+  z-index: 1;
   -webkit-transition: .4s;
   transition: .4s;
   position: absolute;
