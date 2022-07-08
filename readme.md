@@ -4,4 +4,4 @@
 자유롭게 커스텀 해서 사용해 주시기 바랍니다.
 감사합니다.
 
-Page url : 
+Page url : https://blackstrawberry.github.io/jongs-Study-Group/
