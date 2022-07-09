@@ -396,6 +396,7 @@ header nav a div {
 
 .projects .project.active {
   opacity: 1;
+  z-index: 3;
 }
 
 .contact {
@@ -409,14 +410,17 @@ header nav a div {
 }
 
 .contact .contact-wrap {
+  -webkit-transition: 3s;
+  transition: 3s;
+  opacity: 0;
   margin: auto auto;
   width: 70vw;
   word-break: keep-all;
   position: relative;
   z-index: 0;
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  -webkit-transform: translate(0, -20%);
+          transform: translate(0, -20%);
 }
 
 .contact .contact-wrap div {
@@ -431,6 +435,20 @@ header nav a div {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   font-size: 0.4em;
+}
+
+.contact .moveTop {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  padding: 1em .5em;
+  z-index: 9998;
+  font-size: .5em;
+  border-radius: 1.5em;
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {
@@ -483,6 +501,65 @@ header nav a div {
     width: 100%;
     margin: 0 auto;
     font-size: 2rem !important;
+  }
+}
+
+.btn {
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 12px 30px;
+  font-size: 22px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 100px;
+  background-color: #e5e5e5;
+  top: 45px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-animation: wave 5s infinite linear;
+          animation: wave 5s infinite linear;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.btn:hover:before {
+  top: 10px;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    -webkit-transform: translate(-50%) rotate(-180deg);
+            transform: translate(-50%) rotate(-180deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%) rotate(360deg);
+            transform: translate(-50%) rotate(360deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    -webkit-transform: translate(-50%) rotate(-180deg);
+            transform: translate(-50%) rotate(-180deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%) rotate(360deg);
+            transform: translate(-50%) rotate(360deg);
   }
 }
 /*# sourceMappingURL=style.css.map */
